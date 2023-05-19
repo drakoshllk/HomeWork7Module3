@@ -10,12 +10,16 @@ public class Main {
         phones.add(new Phone("xiaomi", "12 lite", 18000));
         phones.add(new Phone("iphone", "XS", 23000));
         List<Phone> iphones = phones.stream()
-                .filter(phone -> phone.getName().equals("iphone")).toList();
+              .filter(phone -> phone.getName().equals("iphone"))
+              .toList();
         for (int i = 0; i < iphones.size(); i++) {
             System.out.println(iphones.get(i).getModel());
         }
         System.out.println("-------------");
-        phones.stream().sorted().flatMap(phone -> Stream.of(phone.getModel(), phone.getPrice())).forEach(phone -> System.out.println(phone));
+        phones.stream()
+            .sorted()
+            .flatMap(phone -> Stream.of(phone.getModel(), phone.getPrice()))
+            .forEach(phone -> System.out.println(phone));
     }
 }
 
